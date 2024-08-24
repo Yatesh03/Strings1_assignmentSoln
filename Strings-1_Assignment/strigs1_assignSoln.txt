@@ -1,0 +1,103 @@
+Ques1: Input a string of size n and update all the odd positions in the string to character ‘#’. Consider 0-based indexing.
+
+#include<iostream>
+using namespace std;
+int main(){
+    string s;
+    cout << "Input string: ";
+    cin >> s;
+
+    int n = s.length();
+
+    for(int i = 0; i < n; i++){
+        if(i%2 != 0) s[i] = '#';
+    }
+
+    cout << "Output string: " << s;
+}
+
+
+Ques-2: Input a string of length n and count all the consonants in the given string.
+
+#include<iostream>
+using namespace std;
+int main(){
+    string str;
+    cout << "Enter the string: ";
+    cin >> str;
+    int i = 0;
+    int count = 0;
+    while(str[i] != '\0'){
+        if(str[i]!='a'&& str[i]!='e'&& str[i]!='i'&& str[i]!='o'&& str[i]!='u' ){
+            count++;
+        }
+        i++;
+    }
+    cout << "No. of Consonants: "<<count;
+}
+
+
+Ques-3: Check whether the given string is palindrome or not.
+
+#include<iostream>
+using namespace std;
+int main(){
+    string s;
+    cout << "Input string: ";
+    cin >> s;
+
+    int n = s.length();
+
+    bool check = true;
+    int i = 0;
+    int j = n-1;
+    while(i < n && j >= 0){
+        if(s[i] != s[j]){
+            cout << "Not a palindrome.";
+            check = false;
+            break;
+        }
+        i++;
+        j--;
+    }
+    if(check == true) cout << "It is a palindrome";
+}
+
+
+Ques-4: Input a string of even length and reverse the second half of the string.
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int main(){
+    string s;
+    cout << "Input string: ";
+    cin >> s;
+
+    int n = s.length();
+
+    reverse(s.begin()+n/2,s.end());
+    cout << "Reversed second half string : " << s;
+}
+
+
+Ques-5: Input a string of length less than 10 and convert it into integer without using builtin function.
+
+
+#include<iostream>
+using namespace std;
+int main(){
+    // string s = "12345";
+    // int x = stoi(s);
+    // cout << x+1;
+
+    string s;
+    getline(cin, s);
+
+    int n = s.length();
+    int x = 0;
+    for(int i = 0; i < n; i++){
+        x *= 10;
+        x += s[i] - '0';
+    }
+    cout << x;
+}
